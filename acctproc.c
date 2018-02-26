@@ -88,6 +88,7 @@ op_thumb_rsa(EVP_PKEY *pkey)
 	else if (NULL == (json = json_fmt_thumb_rsa(exp, mod)))
 		warnx("json_fmt_thumb_rsa");
 
+	free(r);	
 	free(exp);
 	free(mod);
 	return (json);
@@ -185,6 +186,7 @@ op_sign_rsa(char **head, char **prot, EVP_PKEY *pkey, const char *nonce)
 	else
 		rc = 1;
 
+	free(r);
 	free(exp);
 	free(mod);
 	return (rc);
